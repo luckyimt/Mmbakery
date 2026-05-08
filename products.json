@@ -5,17 +5,17 @@
       "items": [
         {
           "name": "Sourdough Bread",
-          "image": "images/sourdough.jpg",
+          "image": "sourdough.jpg",
           "desc": "Crispy crust artisan bread"
         },
         {
           "name": "Baguette",
-          "image": "images/baguette.jpg",
+          "image": baguette.jpg",
           "desc": "Classic French bread"
         },
         {
           "name": "Whole Wheat Bread",
-          "image": "images/wheat.jpg",
+          "image": "wheat.jpg",
           "desc": "Healthy whole grain bread"
         }
       ]
@@ -25,17 +25,17 @@
       "items": [
         {
           "name": "Chocolate Cake",
-          "image": "images/choc.jpg",
+          "image": "choc.jpg",
           "desc": "Rich chocolate layers"
         },
         {
           "name": "Strawberry Cake",
-          "image": "images/strawberry.jpg",
+          "image": "strawberry.jpg",
           "desc": "Fresh cream strawberry cake"
         },
         {
           "name": "Orange Cake",
-          "image": "images/orange.jpg",
+          "image": "orange.jpg",
           "desc": "Citrus flavored cake"
         }
       ]
@@ -45,17 +45,17 @@
       "items": [
         {
           "name": "Chocolate Chips",
-          "image": "images/chips.jpg",
+          "image": "chips.jpg",
           "desc": "Crunchy classic cookie"
         },
         {
           "name": "Oatmeal",
-          "image": "images/oatmeal.jpg",
+          "image": "oatmeal.jpg",
           "desc": "Soft oat texture"
         },
         {
           "name": "Butter",
-          "image": "images/butter.jpg",
+          "image": "butter.jpg",
           "desc": "Rich buttery flavor"
         }
       ]
@@ -65,17 +65,17 @@
       "items": [
         {
           "name": "Croissant",
-          "image": "images/croissant.jpg",
+          "image": "croissant.jpg",
           "desc": "Flaky buttery pastry"
         },
         {
           "name": "Danish",
-          "image": "images/danish.jpg",
+          "image": "danish.jpg",
           "desc": "Fruit topped pastry"
         },
         {
           "name": "Puff Pastry",
-          "image": "images/puff.jpg",
+          "image": "puff.jpg",
           "desc": "Layered crispy pastry"
         }
       ]
