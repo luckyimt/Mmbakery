@@ -1,0 +1,84 @@
+{
+  "menu": [
+    {
+      "category": "Breads",
+      "items": [
+        {
+          "name": "Sourdough Bread",
+          "image": "images/sourdough.jpg",
+          "desc": "Crispy crust artisan bread"
+        },
+        {
+          "name": "Baguette",
+          "image": "images/baguette.jpg",
+          "desc": "Classic French bread"
+        },
+        {
+          "name": "Whole Wheat Bread",
+          "image": "images/wheat.jpg",
+          "desc": "Healthy whole grain bread"
+        }
+      ]
+    },
+    {
+      "category": "Cakes",
+      "items": [
+        {
+          "name": "Chocolate Cake",
+          "image": "images/choc.jpg",
+          "desc": "Rich chocolate layers"
+        },
+        {
+          "name": "Strawberry Cake",
+          "image": "images/strawberry.jpg",
+          "desc": "Fresh cream strawberry cake"
+        },
+        {
+          "name": "Orange Cake",
+          "image": "images/orange.jpg",
+          "desc": "Citrus flavored cake"
+        }
+      ]
+    },
+    {
+      "category": "Cookies",
+      "items": [
+        {
+          "name": "Chocolate Chips",
+          "image": "images/chips.jpg",
+          "desc": "Crunchy classic cookie"
+        },
+        {
+          "name": "Oatmeal",
+          "image": "images/oatmeal.jpg",
+          "desc": "Soft oat texture"
+        },
+        {
+          "name": "Butter",
+          "image": "images/butter.jpg",
+          "desc": "Rich buttery flavor"
+        }
+      ]
+    },
+    {
+      "category": "Pastries",
+      "items": [
+        {
+          "name": "Croissant",
+          "image": "images/croissant.jpg",
+          "desc": "Flaky buttery pastry"
+        },
+        {
+          "name": "Danish",
+          "image": "images/danish.jpg",
+          "desc": "Fruit topped pastry"
+        },
+        {
+          "name": "Puff Pastry",
+          "image": "images/puff.jpg",
+          "desc": "Layered crispy pastry"
+        }
+      ]
+    }
+  ]
+}

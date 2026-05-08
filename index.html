@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bakery Menu</title>
+
+<style>
+
+body {
+  margin: 0;
+  background-image: url('./images/bakery.jpg'); /* replace with your image */
+
+  background-size: cover;       /* fills screen */
+
+  background-position: center;  /* keeps focus centered */
+
+  background-repeat: no-repeat;
+
+  background-attachment: fixed; /* subtle parallax effect */
+  height: 100dvh;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+
+
+/* Layout */
+.container {
+  display: flex;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+/* LEFT MENU */
+.sidebar {
+  width: 36%;
+  backdrop-filter: blur(20px);
+  border-right: 1px solid #ddd;
+  overflow-y: auto;
+
+  background: rgba(20, 20, 20, 0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  color: #fff;
+
+}
+
+/* CATEGORY */
+.category {
+  margin-top: 1%;
+  font-weight: 400;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Arrow */
+.category::after {
+  content: "▾";
+  position: absolute;
+  right: 15px;
+  transition: 0.3s;
+}
+
+.category.active::after {
+  transform: rotate(180deg);
+}
+
+/* DROPDOWN */
+.dropdown {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  padding-left: 10px;
+}
+
+/* OPEN */
+.dropdown.open {
+  max-height: 500px;
+}
+
+/* ITEM */
+.item {
+
+  margin: 5px 0;
+  cursor: pointer;
+  background: rgba(20, 20, 20, 0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+
+/* ACTIVE ITEM */
+.item.active {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: white;
+}
+
+
+/* RIGHT PANEL (important for height context) */
+.content {
+  flex: 1;
+  height: 100vh;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.15); /* transparency */
+  backdrop-filter: blur(12px);           /* blur behind */
+  -webkit-backdrop-filter: blur(12px);   /* Safari/iOS support */
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* PREVIEW CARD */
+.preview {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* IMAGE CONTAINER */
+.preview img {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;   /* fills full height, crops if needed */
+  object-position: center;
+  flex: 1;
+}
+
+/* TEXT CONTENT */
+.preview-content {
+
+
+}
+
+.preview-content h2 {
+  margin: 0;
+}
+
+.preview-content p {
+  color: #666;
+}
+
+/* MOBILE */
+@media(max-width: 768px){
+  .container {
+    flex-direction: row;
+  }
+
+  .sidebar {
+    width: 35%;
+    height: 100dvh;
+  }
+
+  .content {
+    height: 100dvh;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="sidebar" id="menu"></div>
+  <div class="content">
+    <div class="preview" id="preview">
+      <img src="" id="preview-img">
+      <div class="preview-content">
+        <h2 id="preview-title">Select Menu</h2>
+        <p id="preview-desc">Choose an item from the left</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+fetch('products.json')
+.then(res => res.json())
+.then(data => {
+
+  const menu = document.getElementById('menu');
+  const img = document.getElementById('preview-img');
+  const title = document.getElementById('preview-title');
+  const desc = document.getElementById('preview-desc');
+
+  data.menu.forEach(cat => {
+
+    // CATEGORY HEADER
+    const category = document.createElement('div');
+    category.className = 'category';
+    category.textContent = cat.category;
+
+    // DROPDOWN CONTAINER
+    const dropdown = document.createElement('div');
+    dropdown.className = 'dropdown';
+
+    // ITEMS
+    cat.items.forEach(item => {
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'item';
+      itemDiv.textContent = item.name;
+
+      itemDiv.onclick = () => {
+        document.querySelectorAll('.item').forEach(i => i.classList.remove('active'));
+        itemDiv.classList.add('active');
+
+        img.src = item.image;
+        title.textContent = item.name;
+        desc.textContent = item.desc;
+      };
+
+      dropdown.appendChild(itemDiv);
+    });
+
+    // TOGGLE DROPDOWN
+    category.onclick = () => {
+  document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
+  document.querySelectorAll('.category').forEach(c => c.classList.remove('active'));
+
+  category.classList.add('active');
+  dropdown.classList.add('open');
+};
+
+    // APPEND
+    menu.appendChild(category);
+    menu.appendChild(dropdown);
+  });
+
+});
+</script>
+</body>
+</html>
